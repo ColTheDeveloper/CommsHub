@@ -1,0 +1,29 @@
+import { Request,Response,NextFunction } from "express";
+
+//CREATE COMMUNITY
+
+
+
+//EDIT A COMMUNITY
+
+
+
+//ADD COMMUNITY MEMBER
+
+
+
+//ADD COMMUNITY MANAGER
+
+
+
+//DELETE COMMUNITY
+
+
+
+//GET A COMMUNITY
+
+
+
+//GET RANDOM COMMUNITY
+
+

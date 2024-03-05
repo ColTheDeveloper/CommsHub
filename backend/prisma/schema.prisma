@@ -15,21 +15,43 @@ datasource db {
 
 model Event{
   id String  @id @default(auto()) @map("_id") @db.ObjectId
-  eventTitle String
-  eventFlyerUrl String
-  eventTime String
-  eventDate String
+  title String
+  flyerUrl String
+  time String
+  date String
+  venue String
   communityId String @db.ObjectId
   community Community  @relation(fields: [communityId], references: [id])
-  
+  registeredAttendeesId String[] @db.ObjectId
+  checkinAttendeesId String[] @db.ObjectId
 }
 
 model Community{
   id String  @id @default(auto()) @map("_id") @db.ObjectId
   communityName String 
+  communitySlogan String
   communityLogoUrl String
-  communityManagerEmail String @unique
-  password String 
+  communityEmail String @unique
+  communityCreatorId String @db.ObjectId
   events Event[]
+  communityMembersId String[] @db.ObjectId
+  communityManagersId String[] @db.ObjectId
+  reviews Review[]
 }
 
+model User{
+  id String  @id @default(auto()) @map("_id") @db.ObjectId
+  email String
+  username String
+  password String
+}
+
+model Review{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  rating Int 
+  body String
+  communityId String @db.ObjectId
+  community Community @relation(fields: [communityId],references: [id])
+  eventId String @db.ObjectId
+  userId String @db.ObjectId
+}
