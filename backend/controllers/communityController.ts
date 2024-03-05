@@ -1,6 +1,9 @@
 import { Request,Response,NextFunction } from "express";
 
 //CREATE COMMUNITY
+export const createCommunity=async()=>{
+
+}
 
 
 
